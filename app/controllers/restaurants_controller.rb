@@ -10,4 +10,7 @@ class RestaurantsController < ApplicationController
     # redirect 轉址 -> ex.回列表頁
     redirect_to '/restaurants'
   end
+
+  def origin
+  end
 end
