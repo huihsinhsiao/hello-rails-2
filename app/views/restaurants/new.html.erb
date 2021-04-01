@@ -1,21 +1,31 @@
 <h1>新增餐廳</h1>
 
-<%= form_for(Restaurant.new) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= form_for(@restaurant) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-  <%= f.label :tel %>
-  <%= f.text_field :tel %>
+  <div class="field">
+    <%= f.label :tel %>
+    <%= f.text_field :tel %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :mail %>
+    <%= f.text_field :mail %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
 
-  <%= f.label :mail %>
-  <%= f.text_field :mail %>
-
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.submit '新增'%>
+  <%= f.submit '提交'%>
 <% end %>
 
