@@ -1,18 +1,25 @@
 form {
   .field {
     display: flex;
+    width: 300px;
     flex-direction: column;
     padding-top: 0.5em;
   
 
     label {
-      font-size: x-small;
+      font-size: small;
     }
 
     input[type=text], textarea {
       border: 1px solid blue;
       padding: 4px;
       border-radius: 5px;
+    }
+
+    .field_with_errors {
+      input {
+        border-color: rgb(207, 26, 26);
+      }
     }
   }
 }
