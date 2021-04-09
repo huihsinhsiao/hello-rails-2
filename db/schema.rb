@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_061420) do
     t.string "title"
     t.string "address"
     t.string "tel"
-    t.string "mail"
+    t.string "email"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
