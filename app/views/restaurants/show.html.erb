@@ -1,1 +1,8 @@
+<% flash.each do |type, message| %>
+  <div>
+    <%= message %>
+  </div>
+<% end %>
+
 <h1><%= @restaurant.title %></h1>
+<%= link_to "回餐廳列表", restaurants_path %>

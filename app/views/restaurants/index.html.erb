@@ -1,3 +1,9 @@
+<% flash.each do |type, message| %>
+  <div>
+    <%= message %>
+  </div>
+<% end %>
+
 <h1>餐廳列表</h1>
 
 <ul>
@@ -5,7 +11,7 @@
   <li>
     <%= link_to restaurant.title, restaurant_path(restaurant) %>
     <%= link_to '編輯', edit_restaurant_path(restaurant) %>
-    <%= link_to '刪除', restaurant_path(restaurant), method: 'delete', data:{ confirm: '確定嗎'} %>
+    <%= link_to '刪除', restaurant_path(restaurant), method: 'delete', data:{ confirm: '確定刪除嗎？'} %>
   </li>
   <% end %>
 </ul>
