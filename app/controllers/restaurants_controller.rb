@@ -2,7 +2,8 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.order(id: :desc) #all方法可省略
+    # @restaurants = Restaurant.order(id: :desc) #all方法可省略
+    @restaurants = Restaurant.where(deleted_at: nil)
   end
 
   def show
@@ -35,7 +36,7 @@ class RestaurantsController < ApplicationController
   def update
 
     if @restaurant.update(restaurant_params)
-      redirect_to restaurant_path(@restaurant), notice: "編輯餐廳成功！"
+      redirect_to restaurants_path, notice: "編輯餐廳成功！"
     else
       reder :edit
     end
@@ -43,7 +44,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to restaurant_path, notice: "刪除餐廳成功！"
+    redirect_to restaurants_path, notice: "刪除餐廳成功！"
   end
 
   private
