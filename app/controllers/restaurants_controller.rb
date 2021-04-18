@@ -2,8 +2,8 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @restaurants = Restaurant.order(id: :desc) #all方法可省略
-    @restaurants = Restaurant.where(deleted_at: nil)
+    @restaurants = Restaurant.available
+    # @restaurants = Restaurant.available.abc.def #scope方法可以連發
   end
 
   def show
