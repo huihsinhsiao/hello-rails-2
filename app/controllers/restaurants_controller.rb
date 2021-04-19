@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
-  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:edit, :update, :destroy]
+
+  before_action :check_user!, except: [:index, :show]
 
   def index
     @restaurants = Restaurant.available
@@ -7,11 +9,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    # begin 
-    #   @restaurant = Restaurant.find(params[:id]) #因為這是激烈的
-    # rescue 
-    #   redirect_to restaurants_path #所以設定找不到就讓他轉回全部列表
-    # end
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def new
@@ -20,7 +18,9 @@ class RestaurantsController < ApplicationController
 
   def create
     # 寫入資料庫
-    @restaurant = Restaurant.new(restaurant_params)
+    # @restaurant = Restaurant.new(restaurant_params)
+    # @restaurant.user_id = current_user.id
+    @restaurant = current_user.restaurants.new(restaurant_params)
     
     if @restaurant.save
       # redirect 轉址 -> 回列表頁
@@ -34,11 +34,10 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-
     if @restaurant.update(restaurant_params)
       redirect_to restaurants_path, notice: "編輯餐廳成功！"
     else
-      reder :edit
+      render :edit
     end
   end
 
@@ -55,5 +54,4 @@ class RestaurantsController < ApplicationController
     def restaurant_params
       params.require(:restaurant).permit(:title, :tel, :email, :address, :description)
     end
-
 end

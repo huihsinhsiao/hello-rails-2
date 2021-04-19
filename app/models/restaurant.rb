@@ -5,6 +5,8 @@ class Restaurant < ApplicationRecord
   # scope :abc, -> { XXX }
   # scope :def, -> { YYY }
 
+  belongs_to :user
+
   def destroy
     update(deleted_at: Time.now)
   end
