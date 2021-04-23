@@ -11,3 +11,8 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// 以下為0423新增
+import 'icon/fontawesome'
+import '../frontend'
+import '../styles'
