@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 
-龍哥gitnub網址 https://github.com/kaochenlong/uchef
+龍哥uchef網址 https://github.com/kaochenlong/uchef
