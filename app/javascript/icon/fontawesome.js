@@ -4,9 +4,12 @@ import {
   faHeart
 } from '@fortawesome/free-solid-svg-icons'
 
+import {faThumbsUp} from '@fortawesome/free-regular-svg-icons'
+
 library.add(
   faUserAstronaut,
-  faHeart
+  faHeart,
+  faThumbsUp
 )
 
 dom.watch()

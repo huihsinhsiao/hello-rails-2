@@ -45,6 +45,7 @@ group :development do
   gem 'spring'
   gem 'hirb-unicode', '~> 0.0.5'
   gem 'foreman', '~> 0.87.2'
+  gem 'hirb-unicode', '~> 0.0.5'
 end
 
 group :test do

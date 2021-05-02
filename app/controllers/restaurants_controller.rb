@@ -1,6 +1,5 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:edit, :update, :destroy]
-
   before_action :check_user!, except: [:index, :show]
 
   def index
@@ -10,6 +9,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @comment = @restaurant.comments.new
+    @comments = @restaurant.comments.order(id: :desc) #餐廳的留言且排序倒序
   end
 
   def new
@@ -48,7 +49,15 @@ class RestaurantsController < ApplicationController
 
   private
     def find_restaurant
-      @restaurant = Restaurant.find(params[:id])
+      # 1
+      # @restaurant = Restaurant.find(params[:id])
+      # @restaurant = Restaurant.find_by!(
+      #   id: params[:id],
+      #   user_id: current_user.id
+      # )
+
+      # 2
+      @restaurant = current_user.restaurants.find(params[:id])
     end
 
     def restaurant_params

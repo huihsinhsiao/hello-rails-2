@@ -16,3 +16,4 @@ ActiveStorage.start()
 import 'icon/fontawesome'
 import '../frontend'
 import '../styles'
+import "controllers"
