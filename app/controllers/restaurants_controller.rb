@@ -13,6 +13,20 @@ class RestaurantsController < ApplicationController
     @comments = @restaurant.comments.order(id: :desc) #餐廳的留言且排序倒序
   end
 
+  def pocket_list
+    @restaurant = Restaurant.find(params[:id])
+    
+    if current_user.like?(@restaurant)
+      # 移除名單
+      current_user.pocket_list.destroy(@restaurant)
+      render json: { id: @restaurant.id, status: 'removed' } #這裡可以前後端協調要回傳什麼
+    else
+      # 加名單
+      current_user.pocket_list << @restaurant
+      render json: { id: @restaurant.id, status: 'added' } #方便前端知道收到什麼結果要演什麼戲
+    end
+  end
+
   def new
     @restaurant = Restaurant.new
   end

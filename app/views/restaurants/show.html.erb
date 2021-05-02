@@ -1,6 +1,8 @@
-<h1><%= @restaurant.title %></h1>
-
-<i class="far fa-thumbs-up"></i> #這個還沒做出來
+<h1>
+  <%= @restaurant.title %>
+  <i id="thumbsup" class="far fa-thumbs-up"></i>
+  <div id="thumb" data-id="<%= @restaurant.id %>" class="<%= 'thumbs-color' if @restaurant.likers.include?(current_user) %>"></div>
+</h1>
 
 <h3>留言</h3>
 <%= form_for(@comment, url: restaurant_comments_path(@restaurant), remote: true) do |form| %>

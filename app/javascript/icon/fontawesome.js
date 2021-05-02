@@ -4,7 +4,9 @@ import {
   faHeart
 } from '@fortawesome/free-solid-svg-icons'
 
-import {faThumbsUp} from '@fortawesome/free-regular-svg-icons'
+import {
+  faThumbsUp
+} from '@fortawesome/free-regular-svg-icons'
 
 library.add(
   faUserAstronaut,

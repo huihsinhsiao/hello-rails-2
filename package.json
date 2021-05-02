@@ -1,5 +1,9 @@
 {
   "name": "hello-rails-2",
+  "scripts": {
+    "build": "parcel build index.html",
+    "start": "parcel serve index.html"
+  },
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
@@ -10,6 +14,8 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
+    "axios": "^0.21.1",
+    "parcel": "^2.0.0-beta.2",
     "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0"
   },
