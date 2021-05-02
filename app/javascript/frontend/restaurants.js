@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Rails from "@rails/ujs"
 
 document.addEventListener('DOMContentLoaded', function() {
 	let thumbsUp = document.querySelector('#thumb')
